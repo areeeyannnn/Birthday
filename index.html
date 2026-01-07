@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday JAANNAA 💗</title>
+  <style>
+    body {
+      background: black;
+      color: #00ff99;
+      font-family: monospace;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% {opacity: 1;}
+      50% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    #photos {
+      display: none;
+      margin-top: 30px;
+    }
+
+    img {
+      width: 180px;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 0 15px #00ff99;
+    }
+  </style>
+</head>
+
+<body>
+
+<pre id="text"></pre><span class="cursor">█</span>
+
+<div id="photos">
+  <img src="pic1.jpg">
+  <img src="pic2.jpg">
+  <img src="pic3.jpg">
+  <h2 style="color:#ff69b4;">Happy Birthday My Love ❤️</h2>
+</div>
+
+<script>
+const lines = [
+  "Initializing system...",
+  "Loading memories...",
+  "Compiling emotions...",
+  "Error: Can't stop loving you ❤️",
+  "",
+  "Executing birthday.exe 🎂",
+  "",
+  "You are my favorite person ❤️"
+];
+
+let i = 0, j = 0;
+const speed = 50;
+const text = document.getElementById("text");
+
+function type() {
+  if (i < lines.length) {
+    if (j < lines[i].length) {
+      text.innerHTML += lines[i][j];
+      j++;
+      setTimeout(type, speed);
+    } else {
+      text.innerHTML += "\n";
+      j = 0;
+      i++;
+      setTimeout(type, 400);
+    }
+  } else {
+    setTimeout(() => {
+      document.getElementById("photos").style.display = "block";
+    }, 1000);
+  }
+}
+type();
+</script>
+
+</body>
+</html>
