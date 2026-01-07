@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday JAANNAA 💗</title>
+  <title>For Chikki 🩷</title>
   <style>
     body {
       background: black;
@@ -9,6 +9,29 @@
       font-family: monospace;
       padding: 20px;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    #lock {
+      margin-top: 40vh;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 16px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 6px;
+      background: #00ff99;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .cursor {
@@ -21,41 +44,85 @@
       100% {opacity: 1;}
     }
 
-    #photos {
+    #content {
       display: none;
+    }
+
+    #photos {
       margin-top: 30px;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    #photos.show {
+      opacity: 1;
     }
 
     img {
       width: 180px;
-      border-radius: 12px;
+      border-radius: 14px;
       margin: 10px;
-      box-shadow: 0 0 15px #00ff99;
+      box-shadow: 0 0 20px #ff69b4;
     }
   </style>
 </head>
 
 <body>
 
-<pre id="text"></pre><span class="cursor">█</span>
+<!-- PASSWORD SCREEN -->
+<div id="lock">
+  <h2>🔒 Enter Password</h2>
+  <input type="password" id="pass" placeholder="Password">
+  <button onclick="unlock()">Unlock</button>
+</div>
 
-<div id="photos">
-  <img src="pic1.jpg">
-  <img src="pic2.jpg">
-  <img src="pic3.jpg">
-  <h2 style="color:#ff69b4;">Happy Birthday My Love ❤️</h2>
+<!-- MAIN CONTENT -->
+<div id="content">
+  <pre id="text"></pre><span class="cursor">█</span>
+
+  <div id="photos">
+    <img src="pic1.jpg">
+    <img src="pic2.jpg">
+    <img src="pic3.jpg">
+    <h2 style="color:#ff69b4;">Happy Birthday Chikki 🩷</h2>
+    <p style="color:white;">
+      You are not just special…  
+      you are **home** to me.  
+      Always.
+    </p>
+  </div>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/7kzq7y6p5g5m7v8n6x3rk/love.mp3?rlkey=love" type="audio/mpeg">
+  </audio>
 </div>
 
 <script>
+function unlock() {
+  const password = document.getElementById("pass").value;
+  if (password === "chikki") {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    type();
+  } else {
+    alert("Wrong password 🥺");
+  }
+}
+
 const lines = [
-  "Initializing system...",
-  "Loading memories...",
-  "Compiling emotions...",
-  "Error: Can't stop loving you ❤️",
+  "Initializing heart.exe...",
+  "Loading memories with Chikki...",
+  "Compiling every smile...",
+  "",
+  "Warning: She means everything to me 🩷",
   "",
   "Executing birthday.exe 🎂",
   "",
-  "You are my favorite person ❤️"
+  "Happy Birthday Chikki 🩷",
+  "You are my safest place.",
+  "My favourite feeling.",
+  "My forever."
 ];
 
 let i = 0, j = 0;
@@ -76,11 +143,10 @@ function type() {
     }
   } else {
     setTimeout(() => {
-      document.getElementById("photos").style.display = "block";
+      document.getElementById("photos").classList.add("show");
     }, 1000);
   }
 }
-type();
 </script>
 
 </body>
